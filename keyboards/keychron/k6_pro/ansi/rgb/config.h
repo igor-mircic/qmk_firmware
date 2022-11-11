@@ -98,3 +98,6 @@
 #    define CAPS_LOCK_INDEX    30
 
 #endif
+
+
+#define COMBO_COUNT 10
