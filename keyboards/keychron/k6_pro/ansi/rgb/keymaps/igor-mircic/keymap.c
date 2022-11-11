@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [WIN_NAV] = LAYOUT_ansi_68(
      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-     _______,  PREV_DE,  ALT_TAB,  NEXT_DE,  _______,  _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______,  _______,            _______,  _______,
+     _______,  PREV_DE,  ALT_TAB,  NEXT_DE,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
      _______,  _______,  _______,                                _______,                      _______,  _______,  _______,  _______,  _______,  _______),
 
@@ -63,11 +63,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const uint16_t PROGMEM lr_shift_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM ji_combo[] = {KC_J, KC_I, COMBO_END};
+const uint16_t PROGMEM jo_combo[] = {KC_J, KC_O, COMBO_END};
 const uint16_t PROGMEM km_combo[] = {KC_K, KC_M, COMBO_END};
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(lr_shift_combo, KC_CAPS),
     COMBO(jk_combo, KC_ESC),
+    COMBO(ji_combo, LCTL(KC_BSPC)),
+    COMBO(jo_combo, KC_BSPC),
     COMBO(km_combo, KC_ENTER),
     COMBO(df_combo, MO(NAV)),
 };
