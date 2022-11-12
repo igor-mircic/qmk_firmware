@@ -16,6 +16,9 @@ enum layers{
 #define NEXT_DE LGUI(LCTL(KC_RGHT))
 #define ALT_TAB (LALT(KC_TAB))
 
+#define OSM_LSF OSM(MOD_LSFT)
+#define OSM_RSF OSM(MOD_RSFT)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [MAC_BASE] = LAYOUT_ansi_68(
      KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC, KC_DEL,
@@ -27,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [WIN_BASE] = LAYOUT_ansi_68(
      KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC, KC_DEL,
      KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS, KC_HOME,
-     MO_WNAV,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,            KC_ENT,  KC_PGUP,
+     CAPSWRD,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,            KC_ENT,  KC_PGUP,
      KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_UP,    KC_PGDN,
      KC_LCTL,  KC_LGUI,  KC_LALT,                                KC_SPC,                       KC_RALT, MO(WIN_FN1),MO(FN2), KC_LEFT,  KC_DOWN, KC_RGHT),
 
@@ -47,15 +50,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [NAV] = LAYOUT_ansi_68(
      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-     _______,  _______,  _______,  _______,  _______,  _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______,  _______,            _______,  _______,
+     _______,  _______,  _______,  KC_UP,    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+     _______,  _______,  KC_LEFT,  KC_DOWN,  KC_RGHT,  _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______,  _______,            _______,  _______,
      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
      _______,  _______,  _______,                                _______,                      _______,  _______,  _______,  _______,  _______,  _______),
 
 [WIN_NAV] = LAYOUT_ansi_68(
      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-     _______,  PREV_DE,  ALT_TAB,  NEXT_DE,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
+     _______,  _______,  PREV_DE,  ALT_TAB,  NEXT_DE,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
      _______,  _______,  _______,                                _______,                      _______,  _______,  _______,  _______,  _______,  _______),
 
@@ -68,6 +71,12 @@ const uint16_t PROGMEM jo_combo[] = {KC_J, KC_O, COMBO_END};
 const uint16_t PROGMEM km_combo[] = {KC_K, KC_M, COMBO_END};
 const uint16_t PROGMEM kml_combo[] = {KC_K, KC_M, KC_L, COMBO_END};
 const uint16_t PROGMEM kmo_combo[] = {KC_K, KC_M, KC_O, COMBO_END};
+
+const uint16_t PROGMEM df_spc_combo[] = {KC_D, KC_F, KC_SPC, COMBO_END};
+const uint16_t PROGMEM jk_spc_combo[] = {KC_J, KC_K, KC_SPC, COMBO_END};
+const uint16_t PROGMEM a_spc_combo[] = {KC_A, KC_SPC, COMBO_END};
+const uint16_t PROGMEM ad_spc_combo[] = {KC_A, KC_D, KC_SPC, COMBO_END};
+const uint16_t PROGMEM e_spc_combo[] = {KC_E, KC_SPC, COMBO_END};
 
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM fe_combo[] = {KC_F, KC_E, COMBO_END};
@@ -82,6 +91,12 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(km_combo, KC_ENTER),
     COMBO(kml_combo, LALT(KC_ENTER)),
     COMBO(kmo_combo, LCTL(KC_ENTER)),
+
+    COMBO(df_spc_combo, OSM(MOD_LSFT)),
+    COMBO(jk_spc_combo, OSM(MOD_RSFT)),
+    COMBO(a_spc_combo, MO(WIN_NAV)),
+    COMBO(ad_spc_combo, ALT_TAB),
+    COMBO(e_spc_combo, MO(NAV)),
 
     COMBO(df_combo, MO(NAV)),
     COMBO(fe_combo, LCTL(KC_SPC)),
