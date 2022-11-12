@@ -91,6 +91,7 @@ const uint16_t PROGMEM kmo_combo[] = {KC_K, KC_M, KC_O, COMBO_END};
 const uint16_t PROGMEM fg_combo[] = {KC_F, KC_G, COMBO_END};
 const uint16_t PROGMEM jh_combo[] = {KC_J, KC_H, COMBO_END};
 const uint16_t PROGMEM e_spc_combo[] = {KC_E, KC_SPC, COMBO_END};
+const uint16_t PROGMEM d_spc_combo[] = {KC_D, KC_SPC, COMBO_END};
 
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM fe_combo[] = {KC_F, KC_E, COMBO_END};
@@ -111,6 +112,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(fg_combo, OSM(MOD_LSFT)),
     COMBO(jh_combo, OSM(MOD_RSFT)),
     COMBO(e_spc_combo, MO(NAV)),
+    COMBO(d_spc_combo, MO(WIN_NAV)),
 
     COMBO(df_combo, MO(NAV)),
     COMBO(fe_combo, LCTL(KC_SPC)),
