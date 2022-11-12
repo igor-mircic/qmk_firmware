@@ -19,6 +19,22 @@ enum layers{
 #define OSM_LSF OSM(MOD_LSFT)
 #define OSM_RSF OSM(MOD_RSFT)
 
+enum custom_keycodes {
+    M_ALT_T = SAFE_RANGE,
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case M_ALT_T:
+            if (record->event.pressed) {
+               SEND_STRING(SS_DOWN(X_LALT)SS_TAP(X_TAB)SS_UP(X_LALT));
+            }
+            return false;
+    }
+
+    return true;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [MAC_BASE] = LAYOUT_ansi_68(
      KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC, KC_DEL,
@@ -58,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [WIN_NAV] = LAYOUT_ansi_68(
      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-     _______,  _______,  PREV_DE,  ALT_TAB,  NEXT_DE,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
+     _______,  _______,  PREV_DE,  _______,  NEXT_DE,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
      _______,  _______,  _______,                                _______,                      _______,  _______,  _______,  _______,  _______,  _______),
 
@@ -72,10 +88,8 @@ const uint16_t PROGMEM km_combo[] = {KC_K, KC_M, COMBO_END};
 const uint16_t PROGMEM kml_combo[] = {KC_K, KC_M, KC_L, COMBO_END};
 const uint16_t PROGMEM kmo_combo[] = {KC_K, KC_M, KC_O, COMBO_END};
 
-const uint16_t PROGMEM df_spc_combo[] = {KC_D, KC_F, KC_SPC, COMBO_END};
-const uint16_t PROGMEM jk_spc_combo[] = {KC_J, KC_K, KC_SPC, COMBO_END};
-const uint16_t PROGMEM a_spc_combo[] = {KC_A, KC_SPC, COMBO_END};
-const uint16_t PROGMEM ad_spc_combo[] = {KC_A, KC_D, KC_SPC, COMBO_END};
+const uint16_t PROGMEM fg_combo[] = {KC_F, KC_G, COMBO_END};
+const uint16_t PROGMEM jh_combo[] = {KC_J, KC_H, COMBO_END};
 const uint16_t PROGMEM e_spc_combo[] = {KC_E, KC_SPC, COMBO_END};
 
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
@@ -83,6 +97,8 @@ const uint16_t PROGMEM fe_combo[] = {KC_F, KC_E, COMBO_END};
 const uint16_t PROGMEM fw_combo[] = {KC_F, KC_W, COMBO_END};
 const uint16_t PROGMEM few_combo[] = {KC_F, KC_E, KC_W, COMBO_END};
 const uint16_t PROGMEM sdc_combo[] = {KC_S, KC_D, KC_C, COMBO_END};
+const uint16_t PROGMEM dc_combo[] = {KC_D, KC_C, COMBO_END};
+const uint16_t PROGMEM sdf_combo[] = {KC_S, KC_D, KC_F, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(lr_shift_combo, KC_CAPS),
     COMBO(jk_combo, KC_ESC),
@@ -92,10 +108,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(kml_combo, LALT(KC_ENTER)),
     COMBO(kmo_combo, LCTL(KC_ENTER)),
 
-    COMBO(df_spc_combo, OSM(MOD_LSFT)),
-    COMBO(jk_spc_combo, OSM(MOD_RSFT)),
-    COMBO(a_spc_combo, MO(WIN_NAV)),
-    COMBO(ad_spc_combo, ALT_TAB),
+    COMBO(fg_combo, OSM(MOD_LSFT)),
+    COMBO(jh_combo, OSM(MOD_RSFT)),
     COMBO(e_spc_combo, MO(NAV)),
 
     COMBO(df_combo, MO(NAV)),
@@ -103,4 +117,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(fw_combo, LCTL(KC_DOT)),
     COMBO(few_combo, LALT(KC_INS)),
     COMBO(sdc_combo, KC_DEL),
+    COMBO(dc_combo, M_ALT_T),
+    COMBO(sdf_combo, MO(WIN_NAV)),
 };
