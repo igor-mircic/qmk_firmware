@@ -84,6 +84,7 @@ const uint16_t PROGMEM lr_shift_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM ji_combo[] = {KC_J, KC_I, COMBO_END};
 const uint16_t PROGMEM jo_combo[] = {KC_J, KC_O, COMBO_END};
+const uint16_t PROGMEM jio_combo[] = {KC_J, KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM km_combo[] = {KC_K, KC_M, COMBO_END};
 const uint16_t PROGMEM kml_combo[] = {KC_K, KC_M, KC_L, COMBO_END};
 const uint16_t PROGMEM kmo_combo[] = {KC_K, KC_M, KC_O, COMBO_END};
@@ -105,6 +106,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(jk_combo, KC_ESC),
     COMBO(ji_combo, LCTL(KC_BSPC)),
     COMBO(jo_combo, KC_BSPC),
+    COMBO(jio_combo, KC_DEL),
     COMBO(km_combo, KC_ENTER),
     COMBO(kml_combo, LALT(KC_ENTER)),
     COMBO(kmo_combo, LCTL(KC_ENTER)),

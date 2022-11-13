@@ -100,4 +100,4 @@
 #endif
 
 
-#define COMBO_COUNT 20
+#define COMBO_COUNT 30
