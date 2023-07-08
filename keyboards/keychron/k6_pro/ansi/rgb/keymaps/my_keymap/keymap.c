@@ -63,3 +63,15 @@ CTL_T(KC_ESC), KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,
      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  BAT_LVL,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
      KC_TRNS,  KC_TRNS,  KC_TRNS,                                KC_TRNS,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS),
 };
+
+enum combos {
+  W_F_ESC,
+
+};
+
+const uint16_t PROGMEM test_combo [] = { KC_W, KC_F, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+  [W_F_ESC] = COMBO(test_combo, KC_ESC),
+
+};
