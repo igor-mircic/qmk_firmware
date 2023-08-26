@@ -59,19 +59,26 @@ CTL_T(KC_ESC), KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,
 [FN2] = LAYOUT_ansi_68(
      KC_TILD,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_TRNS,  QK_BOOT,
      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
-     KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,            KC_TRNS,  KC_TRNS,
+     KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_TRNS,  KC_TRNS,            KC_TRNS,  KC_TRNS,
      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  BAT_LVL,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
      KC_TRNS,  KC_TRNS,  KC_TRNS,                                KC_TRNS,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS),
 };
 
 enum combos {
-  W_F_ESC,
-
+  J_K_ESC,
+  D_F_FN2,
+  I_O_BS,
+  J_I_ENT,
 };
 
-const uint16_t PROGMEM test_combo [] = { KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM esc_combo [] = { KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM fn2_combo [] = { KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM bs_combo [] = { KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM ent_combo [] = { KC_J, KC_I, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [W_F_ESC] = COMBO(test_combo, KC_ESC),
-
+  [J_K_ESC] = COMBO(esc_combo, KC_ESC),
+  [D_F_FN2] = COMBO(fn2_combo, MO(FN2)),
+  [I_O_BS] = COMBO(bs_combo, KC_BSPC),
+  [J_I_ENT] = COMBO(ent_combo, KC_ENT),
 };
