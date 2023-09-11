@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [WIN_BASE] = LAYOUT_ansi_68(
      KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC, KC_DEL,
      KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS, KC_HOME,
-CTL_T(KC_ESC), KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,            KC_ENT,  KC_PGUP,
+     KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,            KC_ENT,  KC_PGUP,
      KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_UP,    KC_PGDN,
      KC_LCTL,  KC_LGUI,  KC_LALT,                                KC_SPC,                       KC_RALT, MO(WIN_FN1),MO(FN2), KC_LEFT,  KC_DOWN, KC_RGHT),
 
@@ -67,18 +67,18 @@ CTL_T(KC_ESC), KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,
 enum combos {
   J_K_ESC,
   D_F_FN2,
-  I_O_BS,
-  J_I_ENT,
+  J_I_O_BS,
+  M_K_L_ENT,
 };
 
 const uint16_t PROGMEM esc_combo [] = { KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM fn2_combo [] = { KC_D, KC_F, COMBO_END};
-const uint16_t PROGMEM bs_combo [] = { KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM ent_combo [] = { KC_J, KC_I, COMBO_END};
+const uint16_t PROGMEM bs_combo [] = { KC_J, KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM ent_combo [] = { KC_M, KC_K, KC_L, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [J_K_ESC] = COMBO(esc_combo, KC_ESC),
   [D_F_FN2] = COMBO(fn2_combo, MO(FN2)),
-  [I_O_BS] = COMBO(bs_combo, KC_BSPC),
-  [J_I_ENT] = COMBO(ent_combo, KC_ENT),
+  [J_I_O_BS] = COMBO(bs_combo, KC_BSPC),
+  [M_K_L_ENT] = COMBO(ent_combo, KC_ENT),
 };
